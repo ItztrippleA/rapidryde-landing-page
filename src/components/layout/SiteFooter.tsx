@@ -10,9 +10,8 @@ export function SiteFooter() {
     <Box component="footer" sx={{ borderTop: "1px solid", borderColor: "divider", mt: 8 }}>
       <Box sx={{ maxWidth: 1180, mx: "auto", px: { xs: 2, md: 3 }, py: 5, display: "grid", gap: 3, gridTemplateColumns: { xs: "1fr", md: "1.4fr 1fr 1fr" } }}>
         <Box>
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1.2, mb: 1.5 }}>
-            <Mark size={32} />
-            <Typography sx={{ fontFamily: "var(--font-sora), sans-serif", fontWeight: 650 }}>RapidRyde</Typography>
+          <Box sx={{ display: "flex", alignItems: "center", mb: 1.5 }}>
+            <Mark height={40} />
           </Box>
           <Typography color="text.secondary" sx={{ maxWidth: 420 }}>
             More than a ride. A better journey. A Nigeria-first mobility product for clear pickups, a fare you can see, and a driver who can read the economics.
@@ -21,7 +20,7 @@ export function SiteFooter() {
         <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
           <Typography variant="h4">On this site</Typography>
           <FooterLink href="/#features">Features</FooterLink>
-          <FooterLink href="/earn">Earn with Rapid</FooterLink>
+          <FooterLink href="/earn">Earn with Rapyd</FooterLink>
           <FooterLink href="/#drivers">Drivers</FooterLink>
           <FooterLink href="/#safety">Safety</FooterLink>
         </Box>

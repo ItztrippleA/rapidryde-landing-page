@@ -21,7 +21,7 @@ const systems = [
     id: "promise",
     index: "02",
     kicker: "Case",
-    title: "RapidRyde Promise",
+    title: "Rapyd Ryd Promise",
     body: "A trip PIN, a share link, and CaseTrack. Every report gets a reference, a status, and a person when the decision matters.",
     detail: "RR-2041",
     note: "Acknowledged. Next update in the hour.",

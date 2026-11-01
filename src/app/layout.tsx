@@ -22,8 +22,8 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: {
-    default: "RapidRyde — More than a ride. A better journey.",
-    template: "%s · RapidRyde",
+    default: "Rapyd Ryd — More than a ride. A better journey.",
+    template: "%s · Rapyd Ryd",
   },
   description:
     "Nigeria-first mobility. Landmark pickups, upfront fares or your price, trip PIN, CaseTrack, and a clear view of driver earnings.",

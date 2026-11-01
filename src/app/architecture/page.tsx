@@ -4,7 +4,7 @@ import { ArchitectureExplorer } from "@/components/architecture/ArchitectureExpl
 
 export const metadata: Metadata = {
   title: "Class model",
-  description: "Domain class diagram for RapidRyde: rides, offers, trips, payments, cases, deliveries, and driver care.",
+  description: "Domain class diagram for Rapyd Ryd: rides, offers, trips, payments, cases, deliveries, and driver care.",
 };
 
 export default function ArchitecturePage() {

@@ -81,7 +81,7 @@ export const features: Feature[] = [
   { id: "accept", group: "driver", icon: "ThumbUpAlt", title: "Accept, decline, or counter", body: "Drivers see the request, the landmark note, and the fare. On your-price trips they can counter.", apply: { fareMode: "offer" } },
   { id: "destination", group: "driver", icon: "Flag", title: "Destination filter", body: "A driver can head toward home without being penalised for trips that do not fit. Dispatch stays fair.", anchor: "drivers" },
   { id: "heatmap", group: "driver", icon: "Map", title: "Demand map", body: "Busy cells are shown so drivers can move toward work. The map is guidance, not a hidden score.", anchor: "drivers" },
-  { id: "nav", group: "driver", icon: "Navigation", title: "Navigation handoff", body: "Turn-by-turn stays with an established maps provider. RapidRyde keeps the landmark layer.", anchor: "drivers" },
+  { id: "nav", group: "driver", icon: "Navigation", title: "Navigation handoff", body: "Turn-by-turn stays with an established maps provider. Rapyd Ryd keeps the landmark layer.", anchor: "drivers" },
   { id: "docs", group: "driver", icon: "Badge", title: "Document checks", body: "After the NIN check, licence, vehicle, and inspection status stay with operations. Riders see verified, not the files.", anchor: "drivers" },
   { id: "fuel", group: "driver", icon: "LocalGasStation", title: "DriverCare fuel", body: "Optional station list and a single-use code. Fuelling elsewhere does not affect dispatch or rating.", anchor: "drivers" },
   { id: "garage", group: "driver", icon: "Build", title: "Garages and tyres", body: "Vetted partners with published terms. Drivers can rate them and report a bad job.", anchor: "drivers" },

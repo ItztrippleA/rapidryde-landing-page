@@ -64,7 +64,7 @@ export function EarnWithRapidButton({ fullWidth = false, appearance = "line" }: 
         },
       }}
     >
-      Earn with Rapid
+      Earn with Rapyd
     </Button>
   );
 }

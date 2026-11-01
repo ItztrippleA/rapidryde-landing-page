@@ -46,7 +46,7 @@ export function PhoneApp() {
         <Box aria-hidden sx={{ display: { xs: "none", lg: "block" }, position: "absolute", left: -3, top: 166, width: 3, height: 46, borderRadius: 2, bgcolor: "#2A2E26" }} />
         <Box aria-hidden sx={{ display: { xs: "none", lg: "block" }, position: "absolute", right: -3, top: 168, width: 3, height: 72, borderRadius: 2, bgcolor: "#2A2E26" }} />
         <Box
-          aria-label="RapidRyde app preview"
+          aria-label="Rapyd Ryd"
           sx={{
             height: "100%",
             borderRadius: { xs: "32px", lg: "48px" },
@@ -63,11 +63,8 @@ export function PhoneApp() {
                 <Typography sx={{ fontWeight: 700, fontSize: 14, letterSpacing: "-0.02em" }}>9:41</Typography>
                 <StatusIcons />
               </Box>
-              <Box sx={{ position: "absolute", top: 48, left: 16, right: 16, zIndex: 2, display: "flex", alignItems: "center", gap: 1 }}>
-                <Mark size={28} />
-                <Typography sx={{ color: "#F4F5F1", fontFamily: "var(--font-sora), sans-serif", fontWeight: 650, letterSpacing: "-0.03em" }}>
-                  RapidRyde
-                </Typography>
+              <Box sx={{ position: "absolute", top: 46, left: 16, right: 16, zIndex: 2, display: "flex", alignItems: "center" }}>
+                <Mark height={34} tone="onDark" />
               </Box>
               <Box sx={{ position: "absolute", left: 14, bottom: 26, zIndex: 2, display: "flex", gap: 0.6 }}>
                 {(["abuja", "lagos"] as const).map((id) => {
@@ -145,12 +142,9 @@ function Splash() {
       }}
     >
       <motion.div initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
-        <Mark size={64} />
+        <Mark height={78} tone="onDark" />
       </motion.div>
-      <Typography sx={{ mt: 2, fontFamily: "var(--font-sora), sans-serif", fontWeight: 650, letterSpacing: "-0.04em", fontSize: "1.35rem" }}>
-        RapidRyde
-      </Typography>
-      <Typography sx={{ mt: 0.6, fontSize: 13, color: "rgba(243,244,238,0.72)" }}>More than a ride.</Typography>
+      <Typography sx={{ mt: 1.2, fontSize: 13, color: "rgba(243,244,238,0.72)" }}>More than a ride.</Typography>
       <Box aria-hidden sx={{ mt: 2.4, width: 72, height: 3, borderRadius: 99, bgcolor: "rgba(243,244,238,0.16)", overflow: "hidden" }}>
         <Box sx={{ width: "100%", height: "100%", bgcolor: brand.lemon, transformOrigin: "left center", animation: "rr-slide 1.15s ease-out" }} />
       </Box>

@@ -49,11 +49,8 @@ export function SiteHeader() {
       }}
     >
       <Box sx={{ maxWidth: 1180, mx: "auto", px: { xs: 2, md: 3 }, height: 72, display: "flex", alignItems: "center", gap: 2 }}>
-        <Box component={NextLink} href="/" sx={{ display: "flex", alignItems: "center", gap: 1.2, textDecoration: "none", color: "inherit" }}>
-          <Mark />
-          <Typography sx={{ fontFamily: "var(--font-sora), sans-serif", fontWeight: 650, letterSpacing: "-0.04em", fontSize: "1.15rem" }}>
-            RapidRyde
-          </Typography>
+        <Box component={NextLink} href="/" aria-label="Rapyd Ryd" sx={{ display: "flex", alignItems: "center", textDecoration: "none", color: "inherit", minWidth: 0 }}>
+          <Mark height={46} />
         </Box>
         <Box sx={{ display: { xs: "none", md: "flex" }, gap: 0.5, ml: 2, flex: 1, minWidth: 0, overflowX: "auto" }}>
           {links.map((link) => (

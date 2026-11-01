@@ -5,8 +5,8 @@ import Image from "next/image";
 import { features } from "@/data/features";
 
 export const metadata: Metadata = {
-  title: "Earn with Rapid",
-  description: "Driver features for RapidRyde. Riders and drivers both clear a NIN check before a trip can start.",
+  title: "Earn with Rapyd",
+  description: "Driver features for Rapyd Ryd. Riders and drivers both clear a NIN check before a trip can start.",
 };
 
 const checks = [
@@ -25,7 +25,7 @@ export default function EarnPage() {
             Drivers
           </Typography>
           <Typography variant="h1" sx={{ mt: 1.2, maxWidth: 640 }}>
-            Earn with Rapid.
+            Earn with Rapyd.
           </Typography>
           <Typography color="text.secondary" sx={{ mt: 2, maxWidth: 560, fontSize: "1.05rem" }}>
             The driver features. A shift stays closed until the NIN check and the vehicle papers have passed. This preview does not collect a NIN or dispatch a trip.

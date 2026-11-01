@@ -52,7 +52,7 @@ const method = (name: string, returns: string, detail: string, visibility: Visib
 export const packages: UmlPackage[] = [
   { id: "journey", name: "Journey", summary: "The path from a landmark and a fare to a trip, a PIN, a payment, and, if needed, a case." },
   { id: "identity", name: "Identity", summary: "People, sessions, privacy, and the NIN check required before a rider books or a driver goes online." },
-  { id: "localiq", name: "LocalIQ", summary: "The landmark and instruction layer RapidRyde owns on top of a maps provider." },
+  { id: "localiq", name: "LocalIQ", summary: "The landmark and instruction layer Rapyd Ryd owns on top of a maps provider." },
   { id: "booking", name: "Booking", summary: "Requests for rides, offers, schedules, guests, stops, and service classes." },
   { id: "trip", name: "Trip", summary: "The live journey: PIN, share, events, cancellation, rating, and receipt." },
   { id: "fleet", name: "Fleet", summary: "Vehicles, documents, shifts, self-drive hire, and destination filters." },
@@ -154,7 +154,7 @@ export const classes: UmlClass[] = [
   },
   {
     id: "place", packageId: "localiq", name: "Place", stereotype: "entity",
-    summary: "A point from the maps provider, plus RapidRyde's local label.",
+    summary: "A point from the maps provider, plus Rapyd Ryd's local label.",
     attributes: [attr("lat", "decimal"), attr("lng", "decimal"), attr("label", "string"), attr("city", "Zone")],
     methods: [method("adjustPin(lat, lng)", "Place", "Rider can nudge the pin before booking.")],
   },
