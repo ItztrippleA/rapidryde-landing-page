@@ -49,28 +49,33 @@ export function SiteHeader() {
       }}
     >
       <Box sx={{ maxWidth: 1180, mx: "auto", px: { xs: 2, md: 3 }, height: 72, display: "flex", alignItems: "center", gap: 2 }}>
-        <Box component={NextLink} href="/" aria-label="Rapyd Ryd" sx={{ display: "flex", alignItems: "center", textDecoration: "none", color: "inherit", minWidth: 0 }}>
-          <Mark height={46} />
-        </Box>
-        <Box sx={{ display: { xs: "none", md: "flex" }, gap: 0.5, ml: 2, flex: 1, minWidth: 0, overflowX: "auto" }}>
-          {links.map((link) => (
-              <Typography
-                key={link.href}
-                component={NextLink}
-                href={link.href}
-                sx={{
-                  textDecoration: "none",
-                  px: 1.3,
-                  py: 0.7,
-                  borderRadius: 999,
-                  fontWeight: 550,
-                  fontSize: "0.94rem",
-                  color: "text.primary",
-                }}
-              >
-                {link.label}
-              </Typography>
-          ))}
+        <Box sx={{ display: "flex", alignItems: "flex-end", flex: 1, minWidth: 0, gap: 2.5 }}>
+          <Box component={NextLink} href="/" aria-label="Rapyd Ryd" sx={{ display: "flex", alignItems: "flex-end", textDecoration: "none", color: "inherit", minWidth: 0 }}>
+            <Mark height={46} />
+          </Box>
+          <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "flex-end", gap: 0.5, minWidth: 0, overflowX: "auto" }}>
+            {links.map((link) => (
+                <Typography
+                  key={link.href}
+                  component={NextLink}
+                  href={link.href}
+                  sx={{
+                    textDecoration: "none",
+                    px: 1.3,
+                    pt: 0.7,
+                    // Lifts the link text onto the wordmark baseline. The arc sits above that line.
+                    pb: "3px",
+                    lineHeight: 1,
+                    borderRadius: 999,
+                    fontWeight: 550,
+                    fontSize: "0.94rem",
+                    color: "text.primary",
+                  }}
+                >
+                  {link.label}
+                </Typography>
+            ))}
+          </Box>
         </Box>
         <Box sx={{ ml: "auto", display: "flex", alignItems: "center", gap: 1 }}>
           <IconButton aria-label={mode === "dark" ? "Switch to light" : "Switch to dark"} onClick={toggleMode}>
