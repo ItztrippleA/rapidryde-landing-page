@@ -11,26 +11,12 @@ export function scrollToBook() {
   node?.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
-export function scrollToWaitlist() {
-  const node = document.getElementById("waitlist");
-  node?.scrollIntoView({ behavior: "smooth", block: "start" });
-}
-
 export function useBookScroll() {
   const pathname = usePathname();
   const router = useRouter();
   return () => {
     if (pathname === "/") scrollToBook();
     else router.push("/#book");
-  };
-}
-
-export function useWaitlistScroll() {
-  const pathname = usePathname();
-  const router = useRouter();
-  return () => {
-    if (pathname === "/") scrollToWaitlist();
-    else router.push("/#waitlist");
   };
 }
 
@@ -58,14 +44,13 @@ export function BookRideButton({ size = "medium", type = "button", onClick, full
 }
 
 export function JoinWaitlistButton({ size = "medium", fullWidth = false }: { size?: ButtonProps["size"]; fullWidth?: boolean }) {
-  const go = useWaitlistScroll();
   const dark = useTheme().palette.mode === "dark";
   return (
     <Button
-      type="button"
+      component={NextLink}
+      href="/waitlist"
       size={size}
       fullWidth={fullWidth}
-      onClick={go}
       sx={{
         bgcolor: dark ? brand.gold : brand.orange,
         color: dark ? brand.black : brand.orangeInk,

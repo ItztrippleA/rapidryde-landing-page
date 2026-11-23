@@ -89,9 +89,8 @@ export function WaitlistBand() {
         maxWidth: 1180,
         mx: "auto",
         px: { xs: 2, md: 3 },
-        pt: { xs: 14, md: 16 },
-        pb: { xs: 6, md: 10 },
-        scrollMarginTop: 80,
+        pt: { xs: 6, md: 8 },
+        pb: { xs: 8, md: 12 },
       }}
     >
       <Box
