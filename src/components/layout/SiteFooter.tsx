@@ -23,6 +23,7 @@ export function SiteFooter() {
           <FooterLink href="/earn">Earn with Rapyd</FooterLink>
           <FooterLink href="/#drivers">Drivers</FooterLink>
           <FooterLink href="/#safety">Safety</FooterLink>
+          <FooterLink href="/#waitlist">Join the waitlist</FooterLink>
         </Box>
         <Box>
           <Typography variant="h4">Pilot</Typography>

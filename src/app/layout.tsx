@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit, Sora } from "next/font/google";
 import Box from "@mui/material/Box";
+import { MetaPixel } from "@/components/analytics/MetaPixel";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { ThemeRegistry } from "@/theme/ThemeRegistry";
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${sora.variable} ${outfit.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning>
+        <MetaPixel />
         <ThemeRegistry>
           <Box sx={{ minHeight: "100vh", display: "flex", flexDirection: "column", bgcolor: "background.default", color: "text.primary" }}>
             <SiteHeader />

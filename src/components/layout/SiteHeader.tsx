@@ -21,6 +21,7 @@ const links = [
   { href: "/#features", label: "Features" },
   { href: "/#drivers", label: "Drivers" },
   { href: "/#safety", label: "Safety" },
+  { href: "/#waitlist", label: "Waitlist" },
 ];
 
 export function SiteHeader() {

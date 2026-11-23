@@ -65,8 +65,28 @@ import { useBookingStore } from "@/store/useBookingStore";
 import { brand } from "@/theme/tokens";
 import { scrollToBook, EarnWithRapidButton } from "@/components/ui/Actions";
 
-const slides: { id: string; image: string; alt: string; label: string; title: string; body: string; featureId: string; group: FeatureGroup }[] = [
-  { id: "ride", image: "/showcase/hero-ride.jpg", alt: "A passenger and driver beside a white sedan on a sunny street", label: "Ride", title: "City rides from a gate you can name.", body: "A car, keke, or bike. The landmark note travels with the request.", featureId: "city", group: "ride" },
+const slides: {
+  id: string;
+  image: string;
+  video?: string;
+  alt: string;
+  label: string;
+  title: string;
+  body: string;
+  featureId: string;
+  group: FeatureGroup;
+}[] = [
+  {
+    id: "ride",
+    image: "/brand/deer-leap-poster.png",
+    video: "/brand/deer-leap.mp4",
+    alt: "Rapyd Ryd orange car with a leaping deer mark of speed",
+    label: "Ride",
+    title: "City rides from a gate you can name.",
+    body: "A car, keke, or bike. The landmark note travels with the request.",
+    featureId: "city",
+    group: "ride",
+  },
   { id: "intercity", image: "/showcase/hero-intercity.jpg", alt: "A sedan on a highway at golden hour", label: "City to city", title: "Abuja to Lagos, on a fare you both accept.", body: "Seat, pickup, and price are settled before the car leaves.", featureId: "intercity", group: "ride" },
   { id: "courier", image: "/showcase/hero-delivery.jpg", alt: "A courier handing a parcel to someone at a doorway", label: "Courier", title: "A parcel, and a door the courier can find.", body: "Envelope to large. Upfront fee, or your price above the floor.", featureId: "courier", group: "delivery" },
   { id: "freight", image: "/showcase/hero-freight.jpg", alt: "Two people loading boxes into a city van", label: "Freight", title: "A bike, a van, or a truck.", body: "The load note and the fare are on the request before anyone accepts.", featureId: "freight", group: "delivery" },
@@ -162,7 +182,30 @@ export function FeatureAtlas() {
             transition={{ duration: reduce ? 0 : 0.55, ease: [0.22, 1, 0.36, 1] }}
             sx={{ position: "absolute", inset: 0 }}
           >
-            <Image src={slide.image} alt={slide.alt} fill sizes="(min-width: 1200px) 1120px, 100vw" style={{ objectFit: "cover" }} />
+            {slide.video && !reduce ? (
+              <Box
+                component="video"
+                key={slide.video}
+                src={slide.video}
+                poster={slide.image}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-label={slide.alt}
+                sx={{
+                  position: "absolute",
+                  inset: 0,
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  objectPosition: "center 45%",
+                }}
+              />
+            ) : (
+              <Image src={slide.image} alt={slide.alt} fill sizes="(min-width: 1200px) 1120px, 100vw" style={{ objectFit: "cover", objectPosition: "center 45%" }} />
+            )}
             <Box sx={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(23,24,20,0.05) 20%, rgba(23,24,20,0.78) 100%)" }} />
             <Box sx={{ position: "absolute", left: { xs: 20, md: 36 }, right: { xs: 20, md: 120 }, bottom: { xs: 88, md: 36 }, color: "#F3F4EE" }}>
               <Typography sx={{ fontSize: 12, letterSpacing: "0.16em", textTransform: "uppercase", fontWeight: 700 }}>{slide.label}</Typography>
