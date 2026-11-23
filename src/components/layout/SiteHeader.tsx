@@ -13,7 +13,7 @@ import NextLink from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { Mark } from "@/components/brand/Mark";
-import { BookRideButton, EarnWithRapidButton } from "@/components/ui/Actions";
+import { EarnWithRapidButton, JoinWaitlistButton } from "@/components/ui/Actions";
 import { useUiStore } from "@/store/useUiStore";
 
 const links = [
@@ -84,7 +84,7 @@ export function SiteHeader() {
           </IconButton>
           <Box sx={{ display: { xs: "none", sm: "flex" }, alignItems: "center", gap: 1 }}>
             <EarnWithRapidButton />
-            <BookRideButton size="medium" />
+            <JoinWaitlistButton size="medium" />
           </Box>
           <IconButton sx={{ display: { md: "none" } }} aria-label="Open menu" onClick={() => setNavOpen(true)}>
             <MenuIcon />
@@ -103,7 +103,7 @@ export function SiteHeader() {
           ))}
           <Box sx={{ mt: 2, display: "grid", gap: 1 }}>
             <EarnWithRapidButton fullWidth />
-            <BookRideButton />
+            <JoinWaitlistButton fullWidth />
           </Box>
         </Box>
       </Drawer>

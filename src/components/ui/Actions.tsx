@@ -11,12 +11,26 @@ export function scrollToBook() {
   node?.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
+export function scrollToWaitlist() {
+  const node = document.getElementById("waitlist");
+  node?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
 export function useBookScroll() {
   const pathname = usePathname();
   const router = useRouter();
   return () => {
     if (pathname === "/") scrollToBook();
     else router.push("/#book");
+  };
+}
+
+export function useWaitlistScroll() {
+  const pathname = usePathname();
+  const router = useRouter();
+  return () => {
+    if (pathname === "/") scrollToWaitlist();
+    else router.push("/#waitlist");
   };
 }
 
@@ -39,6 +53,29 @@ export function BookRideButton({ size = "medium", type = "button", onClick, full
       }}
     >
       Book Ride Now
+    </Button>
+  );
+}
+
+export function JoinWaitlistButton({ size = "medium", fullWidth = false }: { size?: ButtonProps["size"]; fullWidth?: boolean }) {
+  const go = useWaitlistScroll();
+  const dark = useTheme().palette.mode === "dark";
+  return (
+    <Button
+      type="button"
+      size={size}
+      fullWidth={fullWidth}
+      onClick={go}
+      sx={{
+        bgcolor: dark ? brand.gold : brand.orange,
+        color: dark ? brand.black : brand.orangeInk,
+        px: 2.4,
+        py: size === "large" ? 1.2 : 0.9,
+        fontSize: size === "large" ? "1rem" : "0.95rem",
+        "&:hover": { bgcolor: dark ? brand.goldDeep : brand.orangeHover },
+      }}
+    >
+      Join waitlist
     </Button>
   );
 }
