@@ -24,13 +24,13 @@ type UiState = {
 };
 
 export function useThemeMode() {
-  return useUiStore((state) => (state.hasHydrated ? state.mode : "light"));
+  return useUiStore((state) => (state.hasHydrated ? state.mode : "dark"));
 }
 
 export const useUiStore = create<UiState>()(
   persist(
     (set) => ({
-      mode: "light",
+      mode: "dark",
       hasHydrated: false,
       navOpen: false,
       featureGroup: "all",

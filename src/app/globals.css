@@ -15,6 +15,11 @@ body {
   to { stroke-dashoffset: -100; }
 }
 
+@keyframes rr-caret {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
 .rr-route-flow,
 .rr-route-car {
   animation-name: rr-route-flow;
@@ -26,5 +31,10 @@ body {
   .rr-route-flow,
   .rr-route-car {
     animation: none;
+  }
+
+  .rr-caret {
+    animation: none !important;
+    opacity: 0 !important;
   }
 }

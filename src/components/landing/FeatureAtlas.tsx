@@ -148,7 +148,11 @@ export function FeatureAtlas() {
   }
 
   return (
-    <Box id="features" component="section" sx={{ maxWidth: 1180, mx: "auto", px: { xs: 2, md: 3 }, pt: { xs: 14, md: 16 }, scrollMarginTop: 80 }}>
+    <Box
+      id="features"
+      component="section"
+      sx={{ maxWidth: 1180, mx: "auto", px: { xs: 2, md: 3 }, pt: { xs: 12, md: 16 }, scrollMarginTop: 80 }}
+    >
       <motion.div
         initial={reduce ? false : { opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -169,7 +173,14 @@ export function FeatureAtlas() {
       <Box
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
-        sx={{ position: "relative", mt: 3.5, height: { xs: 460, md: 560 }, borderRadius: "28px", overflow: "hidden", bgcolor: "#171814" }}
+        sx={{
+          position: "relative",
+          mt: 3.5,
+          height: { xs: 380, md: 460 },
+          overflow: "hidden",
+          bgcolor: "#171814",
+          borderRadius: { xs: 0, md: "4px" },
+        }}
       >
         <AnimatePresence initial={false} custom={direction}>
           <Box
@@ -244,23 +255,62 @@ export function FeatureAtlas() {
               key={item.id}
               type="button"
               onClick={() => go(itemIndex)}
-              sx={{ position: "relative", flex: "1 0 88px", minWidth: 88, borderRadius: 999, px: 1.4, py: 0.8, color: on ? "background.default" : "text.primary", bgcolor: "transparent", overflow: "hidden" }}
+              sx={{
+                position: "relative",
+                flex: "1 0 88px",
+                minWidth: 88,
+                borderRadius: 0,
+                px: 1.4,
+                py: 0.8,
+                color: on ? "text.primary" : "text.secondary",
+                bgcolor: "transparent",
+                overflow: "hidden",
+                borderBottom: "2px solid",
+                borderColor: on ? (dark ? brand.gold : brand.orange) : "transparent",
+              }}
             >
-              {on && <Box component="span" sx={{ position: "absolute", inset: 0, borderRadius: 999, bgcolor: "text.primary" }} />}
               {on && !reduce && !paused && (
-                <Box component="span" key={item.id} sx={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 2, bgcolor: dark ? brand.gold : brand.lemon, transformOrigin: "left center", animation: "rr-slide 5.6s linear" }} />
+                <Box
+                  component="span"
+                  key={item.id}
+                  sx={{
+                    position: "absolute",
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    height: 2,
+                    bgcolor: dark ? brand.gold : brand.lemon,
+                    transformOrigin: "left center",
+                    animation: "rr-slide 5.6s linear",
+                  }}
+                />
               )}
-              <Box component="span" sx={{ position: "relative", zIndex: 1, fontSize: 13 }}>{item.label}</Box>
+              <Box component="span" sx={{ position: "relative", zIndex: 1, fontSize: 13 }}>
+                {item.label}
+              </Box>
             </Button>
           );
         })}
       </Box>
 
-      <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mt: 2 }}>
+      <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2, mt: 2.5 }}>
         {related.map((feature) => {
           const Icon = icons[feature.icon] ?? Place;
           return (
-            <Button key={feature.id} type="button" onClick={() => open(feature)} startIcon={<Icon />} sx={{ borderRadius: 999, border: "1px solid", borderColor: "divider", color: "text.primary", bgcolor: "background.paper" }}>
+            <Button
+              key={feature.id}
+              type="button"
+              onClick={() => open(feature)}
+              startIcon={<Icon />}
+              sx={{
+                borderRadius: 0,
+                px: 0,
+                minWidth: 0,
+                color: "text.secondary",
+                bgcolor: "transparent",
+                "&:hover": { color: "text.primary", bgcolor: "transparent" },
+              }}
+            >
               {feature.title}
             </Button>
           );

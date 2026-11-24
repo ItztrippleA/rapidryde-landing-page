@@ -8,7 +8,7 @@ import { useUiStore } from "@/store/useUiStore";
 import { buildTheme } from "./theme";
 
 export function ThemeRegistry({ children }: { children: React.ReactNode }) {
-  const [mode, setMode] = useState<"light" | "dark">("light");
+  const [mode, setMode] = useState<"light" | "dark">("dark");
 
   useEffect(() => {
     const apply = () => {

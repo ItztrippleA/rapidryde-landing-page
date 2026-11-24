@@ -9,9 +9,9 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
-import { motion, useReducedMotion } from "framer-motion";
 import { api, hasApi } from "@/lib/api";
 import { brand } from "@/theme/tokens";
+import { Reveal, SectionHeadline, SectionKicker } from "./motion";
 
 type Role = "rider" | "driver";
 
@@ -35,7 +35,6 @@ function blankForm(): WaitlistForm {
 
 export function WaitlistBand() {
   const dark = useTheme().palette.mode === "dark";
-  const reduce = useReducedMotion();
   const [role, setRole] = useState<Role>("rider");
   const [form, setForm] = useState<WaitlistForm>(blankForm);
   const [loading, setLoading] = useState(false);
@@ -89,128 +88,39 @@ export function WaitlistBand() {
         maxWidth: 1180,
         mx: "auto",
         px: { xs: 2, md: 3 },
-        pt: { xs: 6, md: 8 },
-        pb: { xs: 8, md: 12 },
+        pt: { xs: 12, md: 16 },
+        pb: { xs: 10, md: 14 },
       }}
     >
       <Box
-        component={motion.div}
-        initial={reduce ? false : { opacity: 0, y: 18 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
         sx={{
           display: "grid",
-          gridTemplateColumns: { xs: "1fr", md: "minmax(0, 0.92fr) minmax(0, 1.08fr)" },
-          gap: { xs: 3, md: 5 },
-          alignItems: "stretch",
+          gridTemplateColumns: { xs: "1fr", md: "minmax(0, 0.9fr) minmax(0, 1.1fr)" },
+          gap: { xs: 4, md: 6 },
+          alignItems: "start",
         }}
       >
-        <Box
-          sx={{
-            position: "relative",
-            borderRadius: "28px",
-            overflow: "hidden",
-            minHeight: { xs: 420, md: 560 },
-            bgcolor: "#f4f4f2",
-            color: "#fff",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "flex-end",
-          }}
-        >
-          {reduce ? (
-            <Box
-              component="img"
-              src="/brand/deer-leap-poster.png"
-              alt=""
-              aria-hidden
-              sx={{
-                position: "absolute",
-                inset: 0,
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                objectPosition: "center 45%",
-              }}
-            />
-          ) : (
-            <Box
-              component="video"
-              src="/brand/deer-leap.mp4"
-              poster="/brand/deer-leap-poster.png"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              aria-hidden
-              sx={{
-                position: "absolute",
-                inset: 0,
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                objectPosition: "center 45%",
-              }}
-            />
-          )}
-          <Box
-            aria-hidden
-            sx={{
-              position: "absolute",
-              inset: 0,
-              background:
-                "linear-gradient(180deg, rgba(12,10,8,0.08) 0%, rgba(12,10,8,0.18) 42%, rgba(12,10,8,0.78) 100%)",
-              pointerEvents: "none",
-            }}
-          />
-          <Box sx={{ position: "relative", zIndex: 1, p: { xs: 3, md: 4.5 } }}>
-            <Typography sx={{ fontSize: 12, letterSpacing: "0.16em", textTransform: "uppercase", fontWeight: 700, opacity: 0.85 }}>
-              Early access
-            </Typography>
-            <Typography
-              sx={{
-                mt: 1.5,
-                fontFamily: "var(--font-sora), Sora, sans-serif",
-                fontWeight: 700,
-                fontSize: { xs: "2.2rem", md: "3rem" },
-                lineHeight: 1.05,
-                maxWidth: 420,
-              }}
-            >
-              Rapyd Ryd
-            </Typography>
-            <Typography sx={{ mt: 1.2, fontSize: { xs: "1.15rem", md: "1.35rem" }, fontWeight: 600, maxWidth: 420, lineHeight: 1.35 }}>
-              Join the waitlist for passengers and drivers.
-            </Typography>
-            <Typography sx={{ mt: 1.5, maxWidth: 420, opacity: 0.9, lineHeight: 1.55 }}>
-              Abuja and Lagos first. Leave your WhatsApp number — we will reach out when seats open.
-            </Typography>
-          </Box>
-        </Box>
+        <Reveal>
+          <SectionKicker>Early access</SectionKicker>
+          <SectionHeadline type lines={["Join the waitlist"]} maxWidth={420} />
+          <Typography color="text.secondary" sx={{ mt: 1.8, maxWidth: 420, lineHeight: 1.55 }}>
+            Abuja and Lagos first. Leave your WhatsApp number — we will reach out when seats open.
+          </Typography>
+        </Reveal>
 
         <Box
           component="form"
           onSubmit={(event) => void submit(event)}
-          sx={{
-            p: { xs: 2.4, md: 3.2 },
-            borderRadius: "28px",
-            border: "1px solid",
-            borderColor: "divider",
-            bgcolor: "background.paper",
-            display: "grid",
-            gap: 1.6,
-          }}
+          sx={{ display: "grid", gap: 1.6 }}
         >
           <Box
             sx={{
               display: "flex",
               gap: 1,
               p: 0.5,
-              borderRadius: 999,
-              bgcolor: dark ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.04)",
               width: "fit-content",
+              borderBottom: "1px solid",
+              borderColor: "divider",
             }}
           >
             {([
@@ -228,17 +138,16 @@ export function WaitlistBand() {
                     setError("");
                   }}
                   sx={{
-                    borderRadius: 999,
-                    px: 2,
+                    borderRadius: 0,
+                    px: 1.6,
                     py: 0.85,
                     fontWeight: 700,
-                    bgcolor: active ? (dark ? brand.gold : brand.lemon) : "transparent",
-                    color: active ? brand.black : "text.primary",
+                    bgcolor: "transparent",
+                    color: active ? "text.primary" : "text.secondary",
+                    borderBottom: "2px solid",
+                    borderColor: active ? (dark ? brand.gold : brand.orange) : "transparent",
                     boxShadow: "none",
-                    "&:hover": {
-                      bgcolor: active ? (dark ? brand.goldDeep : "#C6DE4A") : "action.hover",
-                      boxShadow: "none",
-                    },
+                    "&:hover": { bgcolor: "transparent", boxShadow: "none" },
                   }}
                 >
                   {label}
@@ -260,7 +169,6 @@ export function WaitlistBand() {
             onChange={(event) => patch("fullName", event.target.value)}
             autoComplete="name"
           />
-
           <TextField
             required
             label="Phone number"
@@ -271,7 +179,6 @@ export function WaitlistBand() {
             autoComplete="tel"
             inputMode="tel"
           />
-
           <TextField
             required
             label="City / state"
@@ -280,7 +187,6 @@ export function WaitlistBand() {
             onChange={(event) => patch("city", event.target.value)}
             autoComplete="address-level2"
           />
-
           {role === "rider" ? (
             <TextField
               required
@@ -315,7 +221,7 @@ export function WaitlistBand() {
             sx={{
               mt: 0.5,
               minHeight: 52,
-              borderRadius: 999,
+              borderRadius: 0,
               fontWeight: 700,
               bgcolor: dark ? brand.gold : brand.orange,
               color: dark ? brand.black : brand.orangeInk,

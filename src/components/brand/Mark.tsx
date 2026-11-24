@@ -14,7 +14,8 @@ export function Mark({
 }) {
   const mode = useTheme().palette.mode;
   const onDark = tone === "onDark" || mode === "dark";
-  const src = onDark ? "/brand/logo-dark.png" : "/brand/logo-light.png";
+  /** Dark asset: green + orange mark, white wordmark. `v=2` busts old orange-only caches. */
+  const src = onDark ? "/brand/logo-dark.png?v=2" : "/brand/logo-light.png";
   const width = Math.round(height * RATIO);
 
   return (
