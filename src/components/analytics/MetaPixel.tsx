@@ -2,7 +2,7 @@ import Script from "next/script";
 
 /** Meta (Facebook) Pixel — PageView on every landing load. */
 export const META_PIXEL_ID =
-  process.env.NEXT_PUBLIC_META_PIXEL_ID?.trim() || "4145433505588409";
+  process.env.NEXT_PUBLIC_META_PIXEL_ID?.trim() || "2154566635143008";
 
 export function MetaPixel() {
   return (

@@ -10,6 +10,7 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
 import { api, hasApi } from "@/lib/api";
+import { trackXConversion } from "@/lib/track-x";
 import { brand } from "@/theme/tokens";
 import { Reveal, SectionHeadline, SectionKicker } from "./motion";
 
@@ -60,16 +61,24 @@ export function WaitlistBand() {
     setError("");
     setDone("");
     try {
-      const body = await api<{ message?: string }>("/waitlist", {
+      const phone = form.phone.trim();
+      const email = role === "rider" ? form.email.trim() : undefined;
+      const body = await api<{ message?: string; id?: string }>("/waitlist", {
         method: "POST",
         body: JSON.stringify({
           role,
           fullName: form.fullName.trim(),
-          phone: form.phone.trim(),
-          email: role === "rider" ? form.email.trim() : undefined,
+          phone,
+          email,
           city: form.city.trim(),
           source: "landing",
         }),
+      });
+      trackXConversion({
+        kind: "lead",
+        conversionId: body.id,
+        email,
+        phone,
       });
       setDone(body.message || "You are on the waitlist.");
       setForm(blankForm());

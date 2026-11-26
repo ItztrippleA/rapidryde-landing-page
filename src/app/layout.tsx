@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Outfit, Sora } from "next/font/google";
 import Box from "@mui/material/Box";
 import { MetaPixel } from "@/components/analytics/MetaPixel";
 import { TikTokPixel } from "@/components/analytics/TikTokPixel";
+import { XPixel } from "@/components/analytics/XPixel";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { ThemeRegistry } from "@/theme/ThemeRegistry";
@@ -45,6 +47,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body suppressHydrationWarning>
         <MetaPixel />
         <TikTokPixel />
+        <Suspense fallback={null}>
+          <XPixel />
+        </Suspense>
         <ThemeRegistry>
           <Box sx={{ minHeight: "100vh", display: "flex", flexDirection: "column", bgcolor: "background.default", color: "text.primary" }}>
             <SiteHeader />
